@@ -54,10 +54,28 @@ func (h *hacker) Encode(r io.Reader) ([]byte, error) {
 }
 
 func (h *hacker) Decode(w io.Writer, data []byte) error {
+
+	// strings.TrimSpace
+	splitData := strings.Split(string(data), " ")
+	// numOfWords := len(splitData)
+	var decodedValue string
+	for _, val := range splitData {
+		if val == "/" {
+			decodedValue += " "
+		}
+		decodedValue += morseToAlphaNum[val]
+		// if numOfWords == (i + 1) {
+		// 	decodedValue += " " + "/" + " "
+		// }
+	}
+	_, err := w.Write([]byte(decodedValue))
+	if err != nil {
+		return err
+	}
 	return nil
 }
 
-// NewHacker is a factory function that generates a Morse Client
+// NewHacker is a factory function that generates a Morse Hacker Client
 func NewHacker() Hacker {
 	return &hacker{}
 }

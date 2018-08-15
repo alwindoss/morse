@@ -36,3 +36,18 @@ func TestEncodeWithSentence(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestDecode(t *testing.T) {
+	h := morse.NewHacker()
+	w := &strings.Builder{}
+	morseCode := []byte("-- -.-- / -. .- -- . / .. ... / .- .-.. .-- .. -. / -.. --- ... ...")
+	err := h.Decode(w, morseCode)
+	if err != nil {
+		t.Fail()
+	}
+	expected := "MY NAME IS ALWIN DOSS"
+	if w.String() != expected {
+		t.Errorf("Expected the value to be %s but was %s", expected, w.String())
+		t.Fail()
+	}
+}
