@@ -14,7 +14,7 @@ type Encoder interface {
 
 // Decoder is an interface that specifies function to Encode
 type Decoder interface {
-	Decode(io.Writer, []byte) error
+	Decode(io.Reader) ([]byte, error)
 }
 
 // Hacker is an interface that composes Encoder and Decoder
@@ -53,10 +53,15 @@ func (h *hacker) Encode(r io.Reader) ([]byte, error) {
 	return []byte(encodedValue), nil
 }
 
-func (h *hacker) Decode(w io.Writer, data []byte) error {
+func (h *hacker) Decode(r io.Reader) ([]byte, error) {
+	d, err := ioutil.ReadAll(r)
+	if err != nil {
+		return nil, err
+	}
+	data := string(d)
 
 	// strings.TrimSpace
-	splitData := strings.Split(string(data), " ")
+	splitData := strings.Split(data, " ")
 	// numOfWords := len(splitData)
 	var decodedValue string
 	for _, val := range splitData {
@@ -68,11 +73,8 @@ func (h *hacker) Decode(w io.Writer, data []byte) error {
 		// 	decodedValue += " " + "/" + " "
 		// }
 	}
-	_, err := w.Write([]byte(decodedValue))
-	if err != nil {
-		return err
-	}
-	return nil
+
+	return []byte(decodedValue), nil
 }
 
 // NewHacker is a factory function that generates a Morse Hacker Client
