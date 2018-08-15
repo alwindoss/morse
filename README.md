@@ -13,3 +13,5 @@ or
 
 `dep ensure -add github.com/alwindoss/morse`
 
+# Sample Usage
+
