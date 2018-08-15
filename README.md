@@ -15,7 +15,8 @@ or
 `dep ensure -add github.com/alwindoss/morse`
 
 # Sample Usage
-`
+
+```
 package main
 
 import (
@@ -34,4 +35,4 @@ func main() {
 	// Morse Code is: -.-. --- ...- . .-. - / - .... .. ... / - --- / -- --- .-. ... .
 	fmt.Printf("Morse Code is: %s\n", string(morseCode))
 }
-`
+```
