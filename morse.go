@@ -39,7 +39,7 @@ func (h *hacker) Encode(r io.Reader) ([]byte, error) {
 	for _, val := range splitData {
 		for _, c := range val {
 			char := string(c)
-			encodedValue += AlphaNumToMorse[char]
+			encodedValue += alphaNumToMorse[char]
 			encodedValue += " "
 		}
 		if numOfWords > 1 {

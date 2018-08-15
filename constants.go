@@ -1,7 +1,7 @@
 package morse
 
-// AlphaNumToMorse is a mapping of Alpha numeric characters to Morse code
-var AlphaNumToMorse = map[string]string{
+// alphaNumToMorse is a mapping of Alpha numeric characters to Morse code
+var alphaNumToMorse = map[string]string{
 	"A": ".-",
 	"B": "-...",
 	"C": "-.-.",
@@ -45,8 +45,8 @@ var AlphaNumToMorse = map[string]string{
 	"0": "-----",
 }
 
-// MorseToAlphaNum is a mapping of Alpha numeric characters to Morse code
-var MorseToAlphaNum = map[string]string{
+// morseToAlphaNum is a mapping of Alpha numeric characters to Morse code
+var morseToAlphaNum = map[string]string{
 	"A": ".-",
 	"B": "-...",
 	"C": "-.-.",
