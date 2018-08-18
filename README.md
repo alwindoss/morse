@@ -16,7 +16,7 @@ or
 
 # Sample Usage
 
-```
+```golang
 package main
 
 import (
