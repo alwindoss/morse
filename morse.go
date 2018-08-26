@@ -1,7 +1,7 @@
 package morse
 
 import (
-	"fmt"
+	"bytes"
 	"io"
 	"io/ioutil"
 	"strings"
@@ -33,24 +33,25 @@ func (h *hacker) Encode(r io.Reader) ([]byte, error) {
 	}
 	data := string(d)
 	data = strings.ToUpper(data)
-	var encodedValue string
+	var encode bytes.Buffer
 	splitData := strings.Split(data, " ")
 	numOfWords := len(splitData)
 	for j, val := range splitData {
 		vLen := len(val)
 		for i, c := range val {
 			char := string(c)
-			encodedValue += alphaNumToMorse[char]
-			if (i + 1) != vLen {
-				encodedValue += " "
+			if v, ok := alphaNumToMorse[char]; ok {
+				encode.WriteString(v)
+				if (i + 1) != vLen {
+					encode.WriteByte(' ')
+				}
 			}
 		}
 		if numOfWords != (j + 1) {
-			encodedValue += " " + "/" + " "
+			encode.WriteString(" / ")
 		}
 	}
-	fmt.Println(encodedValue)
-	return []byte(encodedValue), nil
+	return encode.Bytes(), nil
 }
 
 func (h *hacker) Decode(r io.Reader) ([]byte, error) {
@@ -60,21 +61,16 @@ func (h *hacker) Decode(r io.Reader) ([]byte, error) {
 	}
 	data := string(d)
 
-	// strings.TrimSpace
 	splitData := strings.Split(data, " ")
-	// numOfWords := len(splitData)
-	var decodedValue string
+	var decode bytes.Buffer
 	for _, val := range splitData {
 		if val == "/" {
-			decodedValue += " "
+			decode.WriteByte(' ')
 		}
-		decodedValue += morseToAlphaNum[val]
-		// if numOfWords == (i + 1) {
-		// 	decodedValue += " " + "/" + " "
-		// }
+		decode.WriteString(morseToAlphaNum[val])
 	}
 
-	return []byte(decodedValue), nil
+	return decode.Bytes(), nil
 }
 
 // NewHacker is a factory function that generates a Morse Hacker Client
