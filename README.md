@@ -28,7 +28,7 @@ import (
 
 func main() {
 	h := morse.NewHacker()
-	morseCode, err := h.Encode(strings.NewReader("Covert this to Morse"))
+	morseCode, err := h.Encode(strings.NewReader("Convert this to Morse"))
 	if err != nil {
 		return
 	}
