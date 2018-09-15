@@ -1,0 +1,3 @@
+docs/* linguist-vendored
+.circleci/* linguist-vendored
+.github/* linguist-vendored
