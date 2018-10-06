@@ -1,7 +1,6 @@
 package morse
 
 import (
-	"fmt"
 	"io"
 	"io/ioutil"
 	"strings"
@@ -49,7 +48,6 @@ func (h *hacker) Encode(r io.Reader) ([]byte, error) {
 			encodedValue += " " + "/" + " "
 		}
 	}
-	fmt.Println(encodedValue)
 	return []byte(encodedValue), nil
 }
 
