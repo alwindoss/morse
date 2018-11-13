@@ -28,11 +28,6 @@ var alphaNumToMorse = map[string]string{
 	"X": "-..-",
 	"Y": "-.--",
 	"Z": "--..",
-	".": ".-.-.-",
-	",": "--..--",
-	"?": "..--..",
-	"/": "-..-.",
-	"@": ".--.-.",
 	"1": ".----",
 	"2": "..---",
 	"3": "...--",
@@ -43,6 +38,32 @@ var alphaNumToMorse = map[string]string{
 	"8": "---..",
 	"9": "----.",
 	"0": "-----",
+	".": ".-.-.-",  // period
+	":": "---...",  // colon
+	",": "--..--",  // comma
+	";": "-.-.-",   // semicolon
+	"?": "..--..",  // question
+	"=": "-...-",   // equals
+	"'": ".----.",  // apostrophe
+	"/": "-..-.",   // slash
+	"!": "-.-.--",  // exclamation
+	"-": "-....-",  // dash
+	"_": "..--.-",  // underline
+	"\"": ".-..-.", // quotation marks
+	"(":  "-.--.",  // parenthesis (open)
+	")":  "-.--.-", // parenthesis (close)
+	"()": "-.--.-", // parentheses
+	"$": "...-..-", // dollar
+	"&": ".-...",   // ampersand
+	"@": ".--.-.",  // at
+	"+": ".-.-.",   // plus
+	"Á": ".--.-",   // A with acute accent
+	"Ä": ".-.-",    // A with diaeresis
+	"É": "..-..",   // E with acute accent
+	"Ñ": "--.--",   // N with tilde
+	"Ö": "---.",    // O with diaeresis
+	"Ü": "..--",    // U with diaeresis
+	" ": ".......", // word interval
 }
 
 // morseToAlphaNum is a mapping of Alpha numeric characters to Morse code
