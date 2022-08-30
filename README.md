@@ -2,7 +2,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/alwindoss/morse)](https://goreportcard.com/report/github.com/alwindoss/morse)
 [![CircleCI](https://circleci.com/gh/alwindoss/morse.svg?style=svg)](https://circleci.com/gh/alwindoss/morse)
 [![codecov](https://codecov.io/gh/alwindoss/morse/branch/master/graph/badge.svg)](https://codecov.io/gh/alwindoss/morse)
-[![Documentation](https://godoc.org/github.com/alwindoss/morse?status.svg)](http://godoc.org/github.com/alwindoss/morse)
+[![Go Reference](https://pkg.go.dev/badge/github.com/alwindoss/morse.svg)](https://pkg.go.dev/github.com/alwindoss/morse)
 [![License](https://img.shields.io/pypi/l/Django.svg)](https://github.com/alwindoss/morse/blob/master/LICENSE)
 
 Morse Code Library in Go
